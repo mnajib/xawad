@@ -32,6 +32,47 @@ Before you begin, here are definitions for terms you will see throughout this gu
 
 - **`devenv` Process Manager**: The CLI tool used to start, stop, and manage local environment services.
 
+## Project Directory Overview
+
+```
+xawad/
+├── apps/
+│   │
+│   ├── app1/
+│   │   ├── db/
+│   │   │   ├── db/schema.sql       # Initial database table structure & sample data
+│   │   │   └── db/db.php           # Database connection helper script
+│   │   ├── public/                 # Files accessible to web browsers
+│   │   │   ├── index.php           # App dashboard (lists appointments)
+│   │   │   ├── book.php            # HTML booking form
+│   │   │   └── process-book.php    # Form handling and SQL insertion logic
+│   │   └── docs/
+│   │       └── README.md
+│   │
+│   ├── app2/
+│   │   ├── db/
+│   │   │   ├── db/schema.sql
+│   │   │   └── db/db.php
+│   │   ├── public/
+│   │   │   └── index.php
+│   │   └── docs/
+│   │       └── README.md
+│   │
+│   └── app3/
+│       ├── db/
+│       │   ├── db/schema.sql
+│       │   └── db/db.php
+│       ├── public/
+│       │   └── index.php
+│       └── docs/
+│           └── README.md
+│
+├── docs/
+│   └── README.md
+├── devenv.nix                      # Environment definition (Nix configuration)
+└── .devenv/                        # Local runtime data & database state (Git ignored)
+```
+
 ## Prerequisites
 
 To run this project, your system only needs:
@@ -147,47 +188,6 @@ If MariaDB experiences port conflicts or schema initialization failures:
     ```Bash
     devenv up --mode all
     ```
-
-## Project Directory Overview
-
-```
-xawad/
-├── apps/
-│   │
-│   ├── app1/
-│   │   ├── db/
-│   │   │   ├── db/schema.sql       # Initial database table structure & sample data
-│   │   │   └── db/db.php           # Database connection helper script
-│   │   ├── public/                 # Files accessible to web browsers
-│   │   │   ├── index.php           # App dashboard (lists appointments)
-│   │   │   ├── book.php            # HTML booking form
-│   │   │   └── process-book.php    # Form handling and SQL insertion logic
-│   │   └── docs/
-│   │       └── README.md
-│   │
-│   ├── app2/
-│   │   ├── db/
-│   │   │   ├── db/schema.sql
-│   │   │   └── db/db.php
-│   │   ├── public/
-│   │   │   └── index.php
-│   │   └── docs/
-│   │       └── README.md
-│   │
-│   └── app3/
-│       ├── db/
-│       │   ├── db/schema.sql
-│       │   └── db/db.php
-│       ├── public/
-│       │   └── index.php
-│       └── docs/
-│           └── README.md
-│
-├── docs/
-│   └── README.md
-├── devenv.nix                      # Environment definition (Nix configuration)
-└── .devenv/                        # Local runtime data & database state (Git ignored)
-```
 
 ## Stopping the Servers
 
